@@ -54,8 +54,42 @@ font-size: 50px;
     text-decoration: none;
     color: black;
     font-weight: bold;
+    transition: background 0.5s, color 0.5s;
 }
 
+.botao-flutuante{
+    position:fixed;
+    width: 64px;
+    height: 64px;
+    right: 10px;
+    transition: width 1s, heigh 0.5s;
+    animation: inicio-pokebola 2s 1;
+}
+
+.botao-flutuante > img{
+    width:100%;
+}
+
+.botao-flutuante:hover{
+    width: 124px;
+    height: 124px;
+}
+
+@keyframes inicio-pokebola{
+   0% {
+   transform: translateY(-300px);
+    opacity:0%;
+   }
+
+   50%{
+       transform: translateY(0);
+       opacity: 100%;
+   }
+
+   80% {
+       transform: translateY(-32px);
+   }
+}
 
 body{
     display: flex;
@@ -66,8 +100,16 @@ main{
     background: linear-gradient(#F5db13, #f2f807)
 }
 
+main, main > div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    flex:1;
+}
 main > div >h1{
-    font-size-adjust: 42px;
+    font-size: 42px;
     font-weight: normal;
     padding: 15px 40px;
 }
@@ -105,6 +147,26 @@ main, main > div{
 }
 
 }
+
+@media (min-width: 769px) {
+    main {
+        flex-direction: row-reverse;
+    }
+
+    main > img, main > div{
+        flex-grow: 1;
+    }
+    .pikachu{
+        max-width:55%;
+    }
+    main > div{
+        justify-content: space-between;
+    }
+    main > div > p{
+        margin:64px 0;
+    }
+}
+
 
 
 
